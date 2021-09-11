@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: .
+    depends_on:
+      - server
+    volumes:
+      - ./src:/app
+  
+  server:
+    image: kennethreitz/httpbin
+    ports:
+      - 4000:80
